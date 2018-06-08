@@ -1,0 +1,13 @@
+<script>
+var ws = new WebSocket("ws://localhost:5441/");
+ws.onopen = function() {
+    var msg = {
+        hahah: "123123"
+    };
+    ws.send(JSON.stringify(msg));
+};
+ws.onmessage = function (evt) {
+    var data = JSON.parse(evt.data);
+    console.log("response data is: " + JSON.stringify(data));
+};
+</script>
